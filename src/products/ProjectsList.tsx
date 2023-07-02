@@ -1,9 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { StoreContext } from '../contexts/StoreContext';
 import { ProjectItem } from './ProjectItem';
 import styled from 'styled-components';
 import ShopHeader from '../components/ShopHeader';
-import FiltersColumn from '../components/FiltersColumn';
+import Sorting from '../components/Sorting';
+import PriceFilter from '../components/PriceFilter';
+import StackFilter from '../components/StackFilter';
 
 const Container = styled.div`
   width: 100%;
@@ -29,20 +31,41 @@ const ProjectsContainer = styled.div`
   padding-left: 20px;
 `;
 
+const FiltersColumn = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 20%;
+`;
+
 export const ProjectsList: React.FC = () => {
   const { state } = useContext(StoreContext);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedStacks, setSelectedStacks] = useState([]);
+  const [selectedPriceRange, setSelectedPriceRange] = useState([0, 1000]);
+
+  function handleSelectStack(stack: string): void {
+  }
 
   return (
     <Container>
-      <ShopHeader />
+      <ShopHeader setSearchTerm={setSearchTerm} /> 
       <MainSection>
-        <FiltersColumn />
+        <FiltersColumn>
+            <Sorting />
+            <PriceFilter />
+            <StackFilter handleSelectStack={handleSelectStack}/>
+        </FiltersColumn>
         <ProjectsContainer>
           {state.projects
           .filter((project) => 
-            state.searchTerm === "" ||
-            project.title.toLowerCase().includes(state.searchTerm.toLowerCase()) ||
-            project.description.toLowerCase().includes(state.searchTerm.toLowerCase())
+            searchTerm === "" ||
+            project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            project.description.toLowerCase().includes(searchTerm.toLowerCase())
+          )
+          .filter((project) =>
+            selectedStacks.length === 0 ||
+            selectedStacks.every(stack => project.stack.includes(stack))
           )
           .map((project) => (
             <ProjectItem key={project.id} project={project} />
