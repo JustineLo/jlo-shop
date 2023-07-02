@@ -1,8 +1,10 @@
 import { TextField, InputAdornment } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import { styled } from "styled-components";
-import { useContext } from "react";
-import { StoreContext } from "../contexts/StoreContext";
+
+interface ShopHeaderProps {
+    setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+}
 
 const Container = styled.div`
     display: flex;
@@ -11,21 +13,14 @@ const Container = styled.div`
     padding: 3rem 0;
 `;
 
-function ShopHeader() {
-    const { dispatch } = useContext(StoreContext);
-
-    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        dispatch({ type: 'SET_SEARCH_TERM', payload: event.target.value });
-    }
-    
-
+function ShopHeader({setSearchTerm}: ShopHeaderProps) {
     return (
         <Container>
             <TextField 
                 id="search-field" 
                 label="Search" 
                 variant="outlined" 
-                onChange={handleSearchChange}
+                onChange={(event) => setSearchTerm(event.target.value)}
                 InputProps={{
                     endAdornment: <InputAdornment position="end" ><SearchIcon /></InputAdornment>,
                 }}
