@@ -2,6 +2,10 @@ import { useState } from "react";
 import { Slider } from '@mui/joy';
 import { styled } from "styled-components";
 
+interface PriceFilterProps {
+    handleSelectPriceRange: (priceRange: number[]) => void;
+}
+
 const PriceFilterContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -11,10 +15,11 @@ const PriceFilterContainer = styled.div`
     }
 `;
 
-function PriceFilter() {
+function PriceFilter({ handleSelectPriceRange }: PriceFilterProps) {
     const [value, setValue] = useState<number[]>([20, 37]);
     const handleChange = (event: Event, newValue: number | number[]) => {
         setValue(newValue as number[]);
+        handleSelectPriceRange(newValue as number[]);
       };
 
     function valueText(value: number) {

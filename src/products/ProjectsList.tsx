@@ -27,7 +27,7 @@ const ProjectsContainer = styled.div`
   grid-template-columns: repeat(3, 1fr);
   row-gap: 30px;
   justify-items: center;
-  align-items: center;
+  align-items: start;
   padding-left: 20px;
 `;
 
@@ -54,13 +54,17 @@ export const ProjectsList: React.FC = () => {
     }
   }
 
+  function handleSelectPriceRange(priceRange: number[]): void {
+    setSelectedPriceRange(priceRange);
+  }
+
   return (
     <Container>
       <ShopHeader setSearchTerm={setSearchTerm} /> 
       <MainSection>
         <FiltersColumn>
             <Sorting />
-            <PriceFilter />
+            <PriceFilter handleSelectPriceRange={handleSelectPriceRange}/>
             <StackFilter handleSelectStack={handleSelectStack}/>
         </FiltersColumn>
         <ProjectsContainer>
@@ -73,6 +77,9 @@ export const ProjectsList: React.FC = () => {
           .filter((project) =>
             selectedStacks.length === 0 ||
             selectedStacks.every(stack => project.stack.includes(stack))
+          )
+          .filter((project) =>
+            project.price >= selectedPriceRange[0] && project.price <= selectedPriceRange[1]
           )
           .map((project) => (
             <ProjectItem key={project.id} project={project} />
