@@ -10,7 +10,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 `;
 
 const MainSection = styled.div`
@@ -27,6 +26,7 @@ const ProjectsContainer = styled.div`
   row-gap: 30px;
   justify-items: center;
   align-items: center;
+  padding-left: 20px;
 `;
 
 export const ProjectsList: React.FC = () => {
@@ -38,7 +38,13 @@ export const ProjectsList: React.FC = () => {
       <MainSection>
         <FiltersColumn />
         <ProjectsContainer>
-          {state.projects.map((project) => (
+          {state.projects
+          .filter((project) => 
+            state.searchTerm === "" ||
+            project.title.toLowerCase().includes(state.searchTerm.toLowerCase()) ||
+            project.description.toLowerCase().includes(state.searchTerm.toLowerCase())
+          )
+          .map((project) => (
             <ProjectItem key={project.id} project={project} />
           ))}
         </ProjectsContainer>

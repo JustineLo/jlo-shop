@@ -105,3 +105,8 @@ export const mockProjects: Project[] = [
     },
   ];
  
+export const stackOptions = (): string[] => {
+  const allStacks = mockProjects.map(project => project.stack).flat();
+  const uniqueStacks = [...new Set(allStacks)];
+  return uniqueStacks;
+}
