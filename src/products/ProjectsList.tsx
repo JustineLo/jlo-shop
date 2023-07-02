@@ -41,10 +41,17 @@ const FiltersColumn = styled.div`
 export const ProjectsList: React.FC = () => {
   const { state } = useContext(StoreContext);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedStacks, setSelectedStacks] = useState([]);
+  const [selectedStacks, setSelectedStacks] = useState<string[]>([]);
   const [selectedPriceRange, setSelectedPriceRange] = useState([0, 1000]);
 
   function handleSelectStack(stack: string): void {
+    if (stack !== '') {
+      if (selectedStacks.includes(stack)) {
+        setSelectedStacks(selectedStacks.filter((item) => item !== stack));
+      } else {
+        setSelectedStacks([...selectedStacks, stack]);
+      }
+    }
   }
 
   return (
