@@ -21,7 +21,7 @@ const Image = styled.img`
 const Details = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 20px;
   padding: 20px 20px 0 20px;
   height: 60%;
   h2 {

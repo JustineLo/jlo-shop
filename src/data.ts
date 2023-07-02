@@ -9,6 +9,7 @@ export interface Project {
     imageUrl: string;
     projectUrl: string;
     price: number;
+    stack: string[];
 }
 
 export const mockProjects: Project[] = [
@@ -18,7 +19,8 @@ export const mockProjects: Project[] = [
       description: 'This is a description for Project 1',
       imageUrl: project1,
       projectUrl: '#',
-      price: 40
+      price: 40,
+      stack: ['React', 'TypeScript', 'JavaScript', 'HTML', 'CSS']
     },
     {
       id: 2,
@@ -26,7 +28,8 @@ export const mockProjects: Project[] = [
       description: 'This is a description for Project 2',
       imageUrl: project2,
       projectUrl: '#',
-      price: 40
+      price: 40,
+      stack: ['React', 'TypeScript', 'JavaScript', 'HTML', 'CSS']
     },
     {
       id: 3,
@@ -34,7 +37,8 @@ export const mockProjects: Project[] = [
       description: 'This is a description for Project 3',
       imageUrl: project3,
       projectUrl: '#',
-      price: 40
+      price: 40,
+      stack: ['Javascript']
     },
     {
       id: 4,
@@ -42,7 +46,8 @@ export const mockProjects: Project[] = [
       description: 'This is a description for Project 4',
       imageUrl: project4,
       projectUrl: '#',
-      price: 40
+      price: 40,
+      stack: ['JavaScript', 'HTML', 'CSS']
     },
     {
       id: 5,
@@ -50,7 +55,8 @@ export const mockProjects: Project[] = [
       description: 'This is a description for Project 5',
       imageUrl: project1,
       projectUrl: '#',
-      price: 40
+      price: 40,
+      stack: ['Python', 'Django', 'JavaScript', 'HTML', 'CSS']
     },
     {
       id: 6,
@@ -58,7 +64,8 @@ export const mockProjects: Project[] = [
       description: 'This is a description for Project 6',
       imageUrl: project2,
       projectUrl: '#',
-      price: 40
+      price: 40,
+      stack: ['PHP', 'Symfony']
     },
     {
       id: 7,
@@ -66,7 +73,8 @@ export const mockProjects: Project[] = [
       description: 'This is a description for Project 7',
       imageUrl: project3,
       projectUrl: '#',
-      price: 40
+      price: 40,
+      stack: ['Svelte', 'Firebase']
     },
     {
       id: 8,
@@ -74,7 +82,8 @@ export const mockProjects: Project[] = [
       description: 'This is a description for Project 8',
       imageUrl: project4,
       projectUrl: '#',
-      price: 100
+      price: 100,
+      stack: ['Svelte', 'Firebase']
     },
     {
       id: 9,
@@ -82,7 +91,8 @@ export const mockProjects: Project[] = [
       description: 'This is a description for Project 9',
       imageUrl: project1,
       projectUrl: '#',
-      price: 100
+      price: 100,
+      stack: ['Svelte', 'Firebase']
     },
     {
       id: 10,
@@ -90,7 +100,8 @@ export const mockProjects: Project[] = [
       description: 'This is a description for Project 10',
       imageUrl: project2,
       projectUrl: '#',
-      price: 100
+      price: 100,
+      stack: ['Svelte', 'Firebase']
     },
   ];
-  
+ 
