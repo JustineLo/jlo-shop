@@ -1,7 +1,9 @@
-import { Grid, Modal } from "@mui/material";
+import { Button, Grid, Modal } from "@mui/material";
 import { Project } from "../data";
 import styled from "styled-components";
 import FiveStars from "./FiveStars";
+import { StoreContext } from "../contexts/StoreContext";
+import { useContext } from "react";
 
 interface Props {
   project: Project;
@@ -96,12 +98,22 @@ const DetailContainer = styled.div`
     margin: 20px 0;
     line-height: 1.5;
   }
+
+  button {
+    width: 40%;
+    margin-top: 4%;
+  }
 `;
 
 function ProductDetailModal({ project, showModal, onClose }: Props) {
   if (!showModal) {
     return null;
   }
+
+  const { dispatch } = useContext(StoreContext);
+  const addToCart = () => {
+    dispatch({ type: "ADD_TO_CART", project });
+  };
 
   return (
     <Modal
@@ -133,6 +145,9 @@ function ProductDetailModal({ project, showModal, onClose }: Props) {
             <FiveStars color="#FFB900" />
             <h3>$ {project.price}</h3>
             <p id="project-modal-description">{project.description}</p>
+            <Button color="primary" variant="contained" onClick={addToCart}>
+              Add to cart
+            </Button>
           </DetailContainer>
         </DetailsColumn>
       </ModalContainer>
