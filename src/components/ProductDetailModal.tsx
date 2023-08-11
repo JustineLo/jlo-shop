@@ -3,7 +3,7 @@ import { Project } from "../data";
 import styled from "styled-components";
 import FiveStars from "./FiveStars";
 import { StoreContext } from "../contexts/StoreContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 
 interface Props {
@@ -94,6 +94,7 @@ const SmallImages = styled(Grid)`
     max-width: 100%;
     max-height: 100%;
     border-radius: 5px;
+    cursor: pointer;
   }
 `;
 
@@ -128,6 +129,7 @@ function ProductDetailModal({ project, showModal, onClose }: Props) {
   }
 
   const { dispatch } = useContext(StoreContext);
+  const [indexImage, setIndexImage] = useState<number>(0);
   const addToCart = () => {
     dispatch({ type: "ADD_TO_CART", project });
   };
@@ -143,13 +145,18 @@ function ProductDetailModal({ project, showModal, onClose }: Props) {
         <ImageColumn>
           <Pictures>
             <MainImage>
-              <img src={project.imagesUrl[0]} alt={project.title} />
+              <img src={project.imagesUrl[indexImage]} alt={project.title} />
             </MainImage>
 
             <SmallImages>
               {project.imagesUrl.map((image, index) => {
                 return (
-                  <SmallImage src={image} alt={project.title} key={index} />
+                  <SmallImage
+                    src={image}
+                    alt={project.title}
+                    key={index}
+                    onClick={() => setIndexImage(index)}
+                  />
                 );
               })}
             </SmallImages>

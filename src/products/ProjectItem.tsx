@@ -80,9 +80,9 @@ const Details = styled.div`
 `;
 
 const Top = styled.div`
-  display: flex; // horizontal arrangement
-  justify-content: space-between; // push items to the edges
-  align-items: center; // vertically center the title and price
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   h2 {
     margin: 0;
@@ -97,8 +97,8 @@ const Bottom = styled.div`
   p {
     overflow: hidden;
     text-overflow: ellipsis;
-    flex: 1; // give it room to expand
-    margin-right: 10px; // some spacing between text and button
+    flex: 1;
+    margin-right: 10px;
   }
 
   svg {
