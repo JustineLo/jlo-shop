@@ -4,6 +4,7 @@ import styled from "styled-components";
 import FiveStars from "./FiveStars";
 import { StoreContext } from "../contexts/StoreContext";
 import { useContext } from "react";
+import CloseIcon from "@mui/icons-material/Close";
 
 interface Props {
   project: Project;
@@ -24,6 +25,18 @@ const ModalContainer = styled.div`
   padding: 20px 100px;
   box-sizing: border-box;
   border-radius: 10px;
+`;
+
+const ModalButton = styled.div`
+  margin-top: 20px;
+  svg {
+    cursor: pointer;
+    font-size: 2rem;
+
+    &:hover {
+      color: grey;
+    }
+  }
 `;
 
 const ImageColumn = styled.div`
@@ -90,6 +103,10 @@ const DetailContainer = styled.div`
   padding: 20px;
   width: 100%;
 
+  h1 {
+    padding: 5px;
+  }
+
   h3 {
     color: var(--primary);
   }
@@ -150,6 +167,9 @@ function ProductDetailModal({ project, showModal, onClose }: Props) {
             </Button>
           </DetailContainer>
         </DetailsColumn>
+        <ModalButton>
+          <CloseIcon onClick={onClose} />
+        </ModalButton>
       </ModalContainer>
     </Modal>
   );
