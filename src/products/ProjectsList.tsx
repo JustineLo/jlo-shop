@@ -2,10 +2,10 @@ import React, { useContext, useState } from "react";
 import { StoreContext } from "../contexts/StoreContext";
 import { ProjectItem } from "./ProjectItem";
 import styled from "styled-components";
-import ShopHeader from "../components/ShopHeader";
 import Sorting from "../components/Sorting";
 import PriceFilter from "../components/PriceFilter";
 import StackFilter from "../components/StackFilter";
+import Search from "../components/Search";
 
 const Container = styled.div`
   width: 100%;
@@ -16,26 +16,61 @@ const Container = styled.div`
 
 const MainSection = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   gap: 2rem;
-  width: 90%;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    width: 90%;
+  }
 `;
 
 const ProjectsContainer = styled.div`
-  width: 80%;
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   row-gap: 30px;
   justify-items: center;
   align-items: start;
-  padding-left: 20px;
+  padding: 0 1rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 20px;
+    width: 80%;
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 const FiltersColumn = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  width: 20%;
+  gap: 20px;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    gap: 40px;
+    width: 20%;
+  }
+`;
+
+const SearchComponent = styled.div`
+  order: 3;
+
+  @media (min-width: 768px) {
+    order: 1;
+  }
+`;
+
+const FilterComponents = styled.div`
+  order: 2;
 `;
 
 export const ProjectsList: React.FC = () => {
@@ -65,12 +100,16 @@ export const ProjectsList: React.FC = () => {
 
   return (
     <Container>
-      <ShopHeader setSearchTerm={setSearchTerm} />
       <MainSection>
         <FiltersColumn>
-          <Sorting handleSortMethodChange={handleSortMethodChange} />
-          <PriceFilter handleSelectPriceRange={handleSelectPriceRange} />
-          <StackFilter handleSelectStack={handleSelectStack} />
+          <SearchComponent>
+            <Search setSearchTerm={setSearchTerm} />
+          </SearchComponent>
+          <FilterComponents>
+            <Sorting handleSortMethodChange={handleSortMethodChange} />
+            <PriceFilter handleSelectPriceRange={handleSelectPriceRange} />
+            <StackFilter handleSelectStack={handleSelectStack} />
+          </FilterComponents>
         </FiltersColumn>
         <ProjectsContainer>
           {state.projects

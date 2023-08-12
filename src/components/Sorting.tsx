@@ -9,8 +9,27 @@ interface SortingProps {
 const SortingContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    justify-content: space-between;
+    gap: 1rem;
+    flex-direction: row;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  Select {
+    width: 100%;
+
+    @media (min-width: 768px) {
+      width: auto;
+    }
+  }
 `;
 
 const Sorting: React.FC<SortingProps> = ({ handleSortMethodChange }) => {

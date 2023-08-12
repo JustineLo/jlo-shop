@@ -12,28 +12,46 @@ const StackFilterContainer = styled.div`
   gap: 1rem;
 `;
 
+const OptionsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
 const StackOption = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+  }
 `;
 
 function StackFilter({ handleSelectStack }: StackFiltersProps) {
   return (
     <StackFilterContainer>
       <h4>Stack</h4>
-      {stackOptions().map((stack, index) => {
-        return (
-          <StackOption key={`stack-${index}`}>
-            <Checkbox
-              variant="outlined"
-              value={stack}
-              onChange={(event) => handleSelectStack(event.target.value)}
-            />
-            <p>{stack}</p>
-          </StackOption>
-        );
-      })}
+      <OptionsGrid>
+        {stackOptions().map((stack, index) => {
+          return (
+            <StackOption key={`stack-${index}`}>
+              <Checkbox
+                variant="outlined"
+                value={stack}
+                onChange={(event) => handleSelectStack(event.target.value)}
+              />
+              <p>{stack}</p>
+            </StackOption>
+          );
+        })}
+      </OptionsGrid>
     </StackFilterContainer>
   );
 }
