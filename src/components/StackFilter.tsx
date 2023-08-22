@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import { stackOptions } from "../data";
 import Checkbox from "@mui/joy/Checkbox";
 
+
 interface StackFiltersProps {
   handleSelectStack: (stack: string) => void;
 }
@@ -10,12 +11,23 @@ const StackFilterContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  h4 {
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    h4 {
+      text-align: start;
+    }
+  }
 `;
 
 const OptionsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem;
+  row-gap: 1rem;
 
   @media (min-width: 768px) {
     grid-template-columns: 1fr;

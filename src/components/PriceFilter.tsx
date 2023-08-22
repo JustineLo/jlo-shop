@@ -9,7 +9,13 @@ interface PriceFilterProps {
 const PriceFilterContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
+  margin: 0 15%;
+
+  h4 {
+    margin-bottom: 0;
+  }
 
   p {
     align-self: center;
@@ -17,6 +23,8 @@ const PriceFilterContainer = styled.div`
   }
 
   @media (min-width: 768px) {
+    align-items: start;
+    margin: 0;
     p {
       align-self: end;
       text-align: right;
