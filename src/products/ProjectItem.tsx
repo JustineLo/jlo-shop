@@ -147,7 +147,7 @@ export const ProjectItem: React.FC<Props> = ({ project }) => {
           <Price>{project.price}$</Price>
         </Top>
         <Bottom>
-          <p>{project.excerpt}</p>
+          <p>{project.excerpt.en}</p>
           <AddBoxIcon
             sx={{ color: "red", fontSize: "35px" }}
             onClick={addToCart}
