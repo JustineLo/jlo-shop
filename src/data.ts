@@ -227,7 +227,7 @@ export const mockProjects: Project[] = [
   {
     id: 7,
     title: "Markdown Previewer",
-    creationDate: new Date("20/02/2022"),
+    creationDate: new Date("02/20/2022"),
     githubUrl: "https://github.com/JustineLo/previsualisateur-markdown",
     excerpt: {
       en: "Intuitive, user-friendly tool for real-time markdown rendering.",
@@ -282,7 +282,7 @@ export const mockProjects: Project[] = [
   {
     id: 14,
     title: "Les Petits Plats",
-    creationDate: new Date("12/16/2023"),
+    creationDate: new Date("12/16/2022"),
     githubUrl: "https://github.com/JustineLo/P7",
     excerpt: {
       en: "Design a recipe search engine for a cookbook publisher's digital venture",
@@ -316,7 +316,7 @@ export const mockProjects: Project[] = [
   {
     id: 15,
     title: "Billed",
-    creationDate: new Date("01/11/2023"),
+    creationDate: new Date("07/11/2023"),
     githubUrl: "https://github.com/JustineLo/Billed-app-FR-Front",
     excerpt: {
       en: "Developed a reporting system for Billed to streamline reimbursement",
@@ -370,7 +370,7 @@ export const mockProjects: Project[] = [
     imagesUrl: [bank1, bank2, bank3, bank4, bank5],
     projectUrl: "",
     price: 500,
-    stack: ["React", "Redux"],
+    stack: ["React", "TypeScript", "Redux"],
   },
   {
     id: 18,

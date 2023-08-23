@@ -33,7 +33,7 @@ const PriceFilterContainer = styled.div`
 `;
 
 function PriceFilter({ handleSelectPriceRange }: PriceFilterProps) {
-  const [value, setValue] = useState<number[]>([20, 37]);
+  const [value, setValue] = useState<number[]>([100, 1000]);
   const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);
     handleSelectPriceRange(newValue as number[]);
@@ -55,6 +55,8 @@ function PriceFilter({ handleSelectPriceRange }: PriceFilterProps) {
         onChange={handleChange}
         valueLabelDisplay="auto"
         getAriaValueText={valueText}
+        min={100}
+        max={1000}
       />
     </PriceFilterContainer>
   );
