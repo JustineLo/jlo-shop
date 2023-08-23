@@ -215,12 +215,20 @@ function ProductDetailModal({ project, showModal, onClose }: Props) {
             ></div>
             <span>
               {project.githubUrl && (
-                <a href={project.githubUrl}>
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <GitHubIcon /> See repo
                 </a>
               )}
               {project.projectUrl !== "" && (
-                <a href={project.projectUrl}>
+                <a
+                  href={project.projectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <OpenInNewIcon /> See live
                 </a>
               )}
