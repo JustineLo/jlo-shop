@@ -6,6 +6,8 @@ import Sorting from "../components/Sorting";
 import PriceFilter from "../components/PriceFilter";
 import StackFilter from "../components/StackFilter";
 import Search from "../components/Search";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 const Container = styled.div`
   width: 100%;
@@ -52,7 +54,6 @@ const ProjectsContainer = styled.div`
 const FiltersColumn = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
   width: 100%;
 
   @media (min-width: 768px) {
@@ -70,7 +71,45 @@ const SearchComponent = styled.div`
 `;
 
 const FilterComponents = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
   order: 2;
+  margin: 1rem 0;
+
+  @media (min-width: 768px) {
+    margin: 0;
+  }
+`;
+
+interface CollapsibleProps {
+  isExpanded: boolean;
+}
+
+const Collapsible = styled.div<CollapsibleProps>`
+  overflow: hidden;
+  max-height: ${(props) => (props.isExpanded ? "1000px" : "0")};
+  transition: max-height 0.3s ease-in-out;
+
+  @media (min-width: 768px) {
+    max-height: none;
+    transition: none;
+  }
+`;
+
+const ToggleButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  background: none;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
 
 export const ProjectsList: React.FC = () => {
@@ -79,6 +118,7 @@ export const ProjectsList: React.FC = () => {
   const [selectedStacks, setSelectedStacks] = useState<string[]>([]);
   const [selectedPriceRange, setSelectedPriceRange] = useState([0, 1000]);
   const [sortMethod, setSortMethod] = useState<string>("");
+  const [isExpanded, setIsExpanded] = useState(false);
 
   function handleSelectStack(stack: string): void {
     if (stack !== "") {
@@ -105,11 +145,17 @@ export const ProjectsList: React.FC = () => {
           <SearchComponent>
             <Search setSearchTerm={setSearchTerm} />
           </SearchComponent>
-          <FilterComponents>
-            <Sorting handleSortMethodChange={handleSortMethodChange} />
-            <PriceFilter handleSelectPriceRange={handleSelectPriceRange} />
-            <StackFilter handleSelectStack={handleSelectStack} />
-          </FilterComponents>
+          <ToggleButton onClick={() => setIsExpanded(!isExpanded)}>
+            Filters
+            {isExpanded ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+          </ToggleButton>
+          <Collapsible isExpanded={isExpanded}>
+            <FilterComponents>
+              <Sorting handleSortMethodChange={handleSortMethodChange} />
+              <PriceFilter handleSelectPriceRange={handleSelectPriceRange} />
+              <StackFilter handleSelectStack={handleSelectStack} />
+            </FilterComponents>
+          </Collapsible>
         </FiltersColumn>
         <ProjectsContainer>
           {state.projects
@@ -119,7 +165,7 @@ export const ProjectsList: React.FC = () => {
                 project.title
                   .toLowerCase()
                   .includes(searchTerm.toLowerCase()) ||
-                project.description
+                project.description.en
                   .toLowerCase()
                   .includes(searchTerm.toLowerCase())
             )
