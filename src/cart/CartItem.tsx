@@ -13,6 +13,7 @@ const CartItemContainer = styled.div`
   border-radius: 10px;
   width: 100%;
   box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.2);
+  background-color: var(--white);
 `;
 
 const ItemDetails = styled.div`
@@ -42,14 +43,14 @@ const Price = styled.span`
 const RemoveButton = styled.button`
   padding: 5px 10px;
   border-radius: 5px;
-  color: #f44336;
+  color: var(--secondary);
   border: none;
   cursor: pointer;
   font-size: 0.8rem;
   transition: 0.3s;
   background-color: transparent;
   &:hover {
-    color: #ff8a8a;
+    color: var(--secondary-light);
   }
 `;
 

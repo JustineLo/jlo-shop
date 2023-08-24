@@ -1,4 +1,4 @@
-import { Button, Grid, Modal } from "@mui/material";
+import { Grid, Modal } from "@mui/material";
 import { Project } from "../data";
 import styled from "styled-components";
 import FiveStars from "./FiveStars";
@@ -21,7 +21,7 @@ const ModalContainer = styled.div`
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: var(--white);
   height: 85vh;
   width: 85vw;
   outline: none;
@@ -133,7 +133,7 @@ const DetailContainer = styled.div`
   }
 
   h3 {
-    color: var(--primary);
+    color: var(--black);
     margin: 2px;
   }
 
@@ -159,11 +159,44 @@ const DetailContainer = styled.div`
     gap: 5px;
 
     &:hover {
-      color: grey;
+      color: var(--primary);
     }
     &:visited {
       color: inherit;
     }
+  }
+`;
+
+const ButtonStyled = styled.button`
+  background-color: var(--primary);
+  border: 2px solid transparent;
+  color: var(--white);
+  border-radius: 5px;
+  width: 60%;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  &:hover {
+    background-color: transparent;
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+`;
+
+const LinkStyled = styled.a`
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: inherit;
+
+  &:hover {
+    color: var(--primary);
+  }
+
+  &:hover *,
+  &:hover svg {
+    color: var(--primary);
   }
 `;
 
@@ -208,35 +241,33 @@ function ProductDetailModal({ project, showModal, onClose }: Props) {
         <DetailsColumn>
           <DetailContainer>
             <h1 id="project-modal-title">{project.title}</h1>
-            <FiveStars color="#FFB900" />
+            <FiveStars color="var(--tertiary)" />
             <h3>$ {project.price}</h3>
             <div
               dangerouslySetInnerHTML={{ __html: project.description.en }}
             ></div>
             <span>
               {project.githubUrl && (
-                <a
+                <LinkStyled
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <GitHubIcon /> See repo
-                </a>
+                </LinkStyled>
               )}
               {project.projectUrl !== "" && (
-                <a
+                <LinkStyled
                   href={project.projectUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <OpenInNewIcon /> See live
-                </a>
+                </LinkStyled>
               )}
             </span>
 
-            <Button color="primary" variant="contained" onClick={addToCart}>
-              Add to cart
-            </Button>
+            <ButtonStyled onClick={addToCart}>Add to cart</ButtonStyled>
           </DetailContainer>
         </DetailsColumn>
         <ModalButton>

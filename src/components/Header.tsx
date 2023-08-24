@@ -3,7 +3,7 @@ import banner from "../assets/jloshopbanner3.png";
 
 const ImageContainer = styled.div`
   position: relative;
-  background-color: #000000;
+  background-color: var(--black);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -16,7 +16,7 @@ const ImageContainer = styled.div`
     bottom: 0;
     width: 100%;
     height: 50%;
-    background: linear-gradient(to top, rgb(255, 255, 255), transparent);
+    background: linear-gradient(to top, var(--background), transparent);
   }
   img {
     object-fit: contain;

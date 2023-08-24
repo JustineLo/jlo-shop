@@ -12,29 +12,25 @@ const NavBarContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #000000;
+  background-color: var(--black);
   z-index: 100;
   padding: 10px 1rem;
 
-  @media (min-width: 768px) {
-    padding: 10px 0;
+  img {
+    margin-left: 5px;
   }
 
   a {
     display: flex;
     align-items: center;
   }
-`;
-
-const Logo = styled(Link)`
-  font-size: 2rem;
-  text-decoration: none;
-  color: green;
-  padding-left: 0;
 
   @media (min-width: 768px) {
-    font-size: 3rem;
-    padding-left: 2rem;
+    padding: 10px 0;
+
+    img {
+      margin-left: 40px;
+    }
   }
 `;
 
@@ -50,7 +46,7 @@ const CartText = styled.span`
 const Cart = styled(Link)`
   font-size: 1rem;
   text-decoration: none;
-  color: white;
+  color: var(--white);
   padding-right: 60px;
   display: flex;
   align-items: center;
@@ -67,7 +63,7 @@ const Badge = styled.span`
   justify-content: center;
   align-items: center;
   background-color: red;
-  color: white;
+  color: var(--white);
   border-radius: 50%;
   width: 16px;
   height: 16px;
@@ -91,9 +87,9 @@ export const NavBar: React.FC = () => {
 
   return (
     <NavBarContainer>
-      <Logo to="/">
+      <Link to="/">
         <img src={logo} />
-      </Logo>
+      </Link>
       <Cart to="/cart">
         <CartIconContainer>
           <ShoppingCartIcon />

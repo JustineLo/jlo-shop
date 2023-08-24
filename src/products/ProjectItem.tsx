@@ -42,7 +42,7 @@ const Overlay = styled.div`
   right: 0;
   opacity: 0.4;
   transition: 0.5s ease;
-  background-color: #000000;
+  background-color: var(--black);
 
   ${ProjectCard}:hover & {
     opacity: 0.1;
@@ -57,7 +57,7 @@ const SeeDetails = styled.button`
   -ms-transform: translate(-50%, -50%);
   opacity: 0;
   transition: 0.5s ease;
-  color: white;
+  color: var(--white);
   font-size: 16px;
   padding: 16px 32px;
   border: none;
@@ -104,8 +104,9 @@ const Bottom = styled.div`
   svg {
     cursor: pointer;
     padding: 0;
+    transition: all 0.3s ease;
     &:hover {
-      color: #ff8a8a;
+      color: var(--primary-light);
     }
   }
 `;
@@ -149,7 +150,7 @@ export const ProjectItem: React.FC<Props> = ({ project }) => {
         <Bottom>
           <p>{project.excerpt.en}</p>
           <AddBoxIcon
-            sx={{ color: "red", fontSize: "35px" }}
+            sx={{ color: "var(--primary)", fontSize: "35px" }}
             onClick={addToCart}
           />
         </Bottom>

@@ -33,6 +33,7 @@ const RecapContainer = styled.div`
   width: 80%;
   height: auto;
   box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.2);
+  background-color: var(--white);
 
   @media (min-width: 768px) {
     width: 20%;
@@ -72,7 +73,7 @@ const CheckoutButton = styled.button`
   padding: 8px 20px;
   margin-top: 10px;
   border-radius: 10px;
-  background-color: #007bff;
+  background-color: var(--primary);
   color: white;
   border: none;
   cursor: pointer;
@@ -80,14 +81,14 @@ const CheckoutButton = styled.button`
   transition: 0.3s;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: var(--primary-light);
   }
 `;
 
 const ClearBasketButton = styled.button`
   padding: 8px 20px;
   border-radius: 10px;
-  background-color: #ff0000;
+  background-color: var(--secondary);
   color: white;
   border: none;
   cursor: pointer;
@@ -95,14 +96,14 @@ const ClearBasketButton = styled.button`
   transition: 0.3s;
 
   &:hover {
-    background-color: #cc0000;
+    background-color: var(--secondary-light);
   }
 `;
 
 const AddMoreButton = styled.button`
   padding: 8px 20px;
   border-radius: 10px;
-  background-color: #00bb00;
+  background-color: var(--tertiary);
   color: white;
   border: none;
   cursor: pointer;
@@ -110,7 +111,7 @@ const AddMoreButton = styled.button`
   transition: 0.3s;
 
   &:hover {
-    background-color: #008800;
+    background-color: var(--tertiary-light);
   }
 `;
 
@@ -160,7 +161,7 @@ const CheckoutPage: React.FC = () => {
         <RecapRow>
           <span className="title">TVA :</span> <span>${total * 0.1}</span>
         </RecapRow>
-        <hr color="#c4c4c4" />
+        <hr color="#b6b6b6" />
         <RecapRow>
           <span className="title bold">Total :</span>
           <span className="bold">${total + total * 0.1}</span>
