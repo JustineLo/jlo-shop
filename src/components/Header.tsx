@@ -7,7 +7,7 @@ const ImageContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 60px;
+  margin: 60px 0;
 
   &:after {
     content: "";

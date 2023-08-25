@@ -57,6 +57,7 @@ function PriceFilter({ handleSelectPriceRange }: PriceFilterProps) {
         getAriaValueText={valueText}
         min={100}
         max={1000}
+        sx={{ color: "#ac46f0" }}
       />
     </PriceFilterContainer>
   );
