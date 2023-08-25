@@ -4,6 +4,7 @@ import { StoreContext } from "../contexts/StoreContext";
 import styled from "styled-components";
 import logo from "./../assets/logo3.png";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const NavBarContainer = styled.nav`
   position: fixed;
@@ -32,6 +33,23 @@ const NavBarContainer = styled.nav`
       margin-left: 40px;
     }
   }
+`;
+
+const LeftCol = styled.div`
+  display: flex;
+  justify-content: flex-start;
+`;
+
+const MiddleCol = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+`;
+
+const RightCol = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  gap: 40px;
 `;
 
 const CartText = styled.span`
@@ -87,16 +105,24 @@ export const NavBar: React.FC = () => {
 
   return (
     <NavBarContainer>
-      <Link to="/">
-        <img src={logo} />
-      </Link>
-      <Cart to="/cart">
-        <CartIconContainer>
-          <ShoppingCartIcon />
-          {cartItemsCount > 0 && <Badge>{cartItemsCount}</Badge>}
-        </CartIconContainer>
-        <CartText>Cart {cartItemsCount > 0 && `(${cartItemsCount})`}</CartText>
-      </Cart>
+      <LeftCol>
+        <Link to="/">
+          <img src={logo} />
+        </Link>
+      </LeftCol>
+      <MiddleCol></MiddleCol>
+      <RightCol>
+        <LanguageSwitcher />
+        <Cart to="/cart">
+          <CartIconContainer>
+            <ShoppingCartIcon />
+            {cartItemsCount > 0 && <Badge>{cartItemsCount}</Badge>}
+          </CartIconContainer>
+          <CartText>
+            Cart {cartItemsCount > 0 && `(${cartItemsCount})`}
+          </CartText>
+        </Cart>
+      </RightCol>
     </NavBarContainer>
   );
 };
