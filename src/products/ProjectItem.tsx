@@ -50,28 +50,6 @@ const Overlay = styled.div`
   }
 `;
 
-const SeeDetails = styled.button`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: 0.5s ease;
-  color: var(--white);
-  font-size: 16px;
-  padding: 16px 32px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  text-align: center;
-  text-decoration: none;
-
-  ${ProjectCard}:hover & {
-    opacity: 1;
-  }
-`;
-
 const Details = styled.div`
   display: flex;
   flex-direction: column;
@@ -134,9 +112,7 @@ export const ProjectItem: React.FC<Props> = ({ project }) => {
     <ProjectCard>
       <ImageContainer>
         <Image image={project.imagesUrl[0]} />
-        <Overlay onClick={() => setShowModal(true)}>
-          <SeeDetails>See Details</SeeDetails>
-        </Overlay>
+        <Overlay onClick={() => setShowModal(true)}></Overlay>
       </ImageContainer>
       <ProductDetailModal
         project={project}
