@@ -254,7 +254,7 @@ function ProductDetailModal({ project, showModal, onClose }: Props) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <GitHubIcon /> See repo
+                  <GitHubIcon /> {t("modal.seeRepo")}
                 </LinkStyled>
               )}
               {project.projectUrl !== "" && (
@@ -263,12 +263,14 @@ function ProductDetailModal({ project, showModal, onClose }: Props) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <OpenInNewIcon /> See live
+                  <OpenInNewIcon /> {t("modal.seeLive")}
                 </LinkStyled>
               )}
             </span>
 
-            <ButtonStyled onClick={addToCart}>Add to cart</ButtonStyled>
+            <ButtonStyled onClick={addToCart}>
+              {t("modal.addToCart")}
+            </ButtonStyled>
           </DetailContainer>
         </DetailsColumn>
         <ModalButton>

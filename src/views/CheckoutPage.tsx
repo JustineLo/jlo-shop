@@ -3,6 +3,7 @@ import { StoreContext } from "../contexts/StoreContext";
 import styled from "styled-components";
 import { CartItem } from "../cart/CartItem";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Container = styled.div`
   display: flex;
@@ -119,6 +120,7 @@ const CheckoutPage: React.FC = () => {
   const { state, dispatch } = useContext(StoreContext);
   const navigate = useNavigate();
   const total = state.cart.reduce((acc, item) => acc + item.price, 0);
+  const { t } = useTranslation();
 
   const handleCheckout = () => {
     state.cart.forEach((project) => {
@@ -146,34 +148,37 @@ const CheckoutPage: React.FC = () => {
             ))}
           </ItemContainer>
         ) : (
-          <h2>Your basket is empty</h2>
+          <h2>{t("checkout.empty")}</h2>
         )}
 
         <ButtonsContainer>
           <AddMoreButton onClick={handleAddMore}>
-            Add More Projects
+            {t("checkout.addMore")}
           </AddMoreButton>
           {state.cart.length !== 0 && (
             <ClearBasketButton onClick={handleClearBasket}>
-              Clear Basket
+              {t("checkout.clearCart")}
             </ClearBasketButton>
           )}
         </ButtonsContainer>
       </div>
       <RecapContainer>
         <RecapRow>
-          <span className="title bold">Subtotal :</span>
-          <span className="bold">${total}</span>
+          <span className="title bold">{t("checkout.subtotal")} :</span>
+          <span className="bold">{total}$</span>
         </RecapRow>
         <RecapRow>
-          <span className="title">TVA :</span> <span>${total * 0.1}</span>
+          <span className="title">{t("checkout.vat")} :</span>{" "}
+          <span>{total * 0.1}$</span>
         </RecapRow>
         <hr color="#b6b6b6" />
         <RecapRow>
           <span className="title bold">Total :</span>
-          <span className="bold">${total + total * 0.1}</span>
+          <span className="bold">{total + total * 0.1}$</span>
         </RecapRow>
-        <CheckoutButton onClick={handleCheckout}>Checkout</CheckoutButton>
+        <CheckoutButton onClick={handleCheckout}>
+          {t("checkout.checkout")}
+        </CheckoutButton>
       </RecapContainer>
     </Container>
   );

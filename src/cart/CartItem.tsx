@@ -71,7 +71,7 @@ export const CartItem: React.FC<Props> = ({ project }) => {
         <Image src={project.imagesUrl[0]} alt={project.title} />
         <Title>{project.title}</Title>
       </ItemDetails>
-      <Price>${project.price}</Price>
+      <Price>{project.price}$</Price>
       <RemoveButton onClick={removeFromCart}>
         <DeleteIcon />
       </RemoveButton>

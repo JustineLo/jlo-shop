@@ -1,4 +1,35 @@
 {
+  "sort": {
+    "label": "Trier par",
+    "placeholder": "Choisissez...",
+    "priceLowHigh": "Prix : du plus bas au plus élevé",
+    "priceHighLow": "Prix : du plus élevé au plus bas",
+    "newest": "Les plus récents",
+    "latest": "Les plus anciens"
+  },
+  "priceFilter": {
+    "label": "Prix",
+    "to": "à"
+  },
+  "search": {
+    "label": "Rechercher"
+  },
+  "navbar": {
+    "cart": "Panier"
+  },
+  "modal": {
+    "addToCart": "Ajouter au panier",
+    "seeRepo": "Voir repo",
+    "seeLive": "Voir live"
+  },
+  "checkout": {
+    "empty": "Votre panier est vide",
+    "subtotal": "Sous-total",
+    "vat": "TVA",
+    "checkout": "Valider la commande",
+    "addMore": "Ajouter plus de projets",
+    "clearCart": "Vider le panier"
+  },
   "readncollect": {
     "excerpt": "Transformez les articles en une mosaïque de connaissances. Extrayez, élaborez et exportez vos idées.",
     "description": "<p>L'application permet aux utilisateurs d'entrer des URLs d'articles, en extrayant le contenu essentiel. Mais ce n'est pas qu'une simple plateforme de prise de notes. Son atout réside dans sa fonction de collage unique. Les utilisateurs peuvent fusionner, réarranger et élaborer leurs notes en une mosaïque de connaissances personnalisée. C'est comme une toile où les idées de différents articles se rencontrent harmonieusement.</p><p>Et si vous pouviez tenir cette toile entre vos mains ? Reconnaissant la valeur des insights tangibles, j'ai intégré une fonction permettant aux utilisateurs d'exporter leurs collages de connaissances sous forme de PDF bien organisé. Ce n'est pas qu'une app; c'est une solution conçue pour les lecteurs de l'ère numérique.</p> <h4>Technologies utilisées :</h4><ul><li>Typescript : Pour une expérience frontend fiable.</li><li>Python : Alimentant le backend pour un traitement des données efficace.</li></ul>"

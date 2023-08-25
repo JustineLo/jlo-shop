@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Slider } from "@mui/joy";
 import { styled } from "styled-components";
-
+import { useTranslation } from "react-i18next";
 interface PriceFilterProps {
   handleSelectPriceRange: (priceRange: number[]) => void;
 }
@@ -34,6 +34,7 @@ const PriceFilterContainer = styled.div`
 
 function PriceFilter({ handleSelectPriceRange }: PriceFilterProps) {
   const [value, setValue] = useState<number[]>([100, 1000]);
+  const { t } = useTranslation();
   const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);
     handleSelectPriceRange(newValue as number[]);
@@ -45,12 +46,12 @@ function PriceFilter({ handleSelectPriceRange }: PriceFilterProps) {
 
   return (
     <PriceFilterContainer>
-      <h4>Price range</h4>
+      <h4>{t("priceFilter.label")}</h4>
       <p>
-        {value[0]}$ to {value[1]}${" "}
+        {value[0]}$ {t("priceFilter.to")} {value[1]}${" "}
       </p>
       <Slider
-        getAriaLabel={() => "Temperature range"}
+        getAriaLabel={() => "Price range"}
         value={value}
         onChange={handleChange}
         valueLabelDisplay="auto"

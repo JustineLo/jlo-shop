@@ -1,4 +1,35 @@
 {
+  "sort": {
+    "label": "Sort by",
+    "placeholder": "Choose one...",
+    "priceLowHigh": "Price: Low to High",
+    "priceHighLow": "Price: High to Low",
+    "newest": "Newest",
+    "latest": "Latest"
+  },
+  "priceFilter": {
+    "label": "Price range",
+    "to": "to"
+  },
+  "search": {
+    "label": "Search"
+  },
+  "navbar": {
+    "cart": "Cart"
+  },
+  "modal": {
+    "addToCart": "Add to cart",
+    "seeRepo": "See repo",
+    "seeLive": "See live"
+  },
+  "checkout": {
+    "empty": "Your cart is empty",
+    "subtotal": "Subtotal",
+    "vat": "VAT",
+    "checkout": "Checkout",
+    "addMore": "Add more projects",
+    "clearCart": "Clear cart"
+  },
   "readncollect": {
     "excerpt": "Transform articles into a knowledge collage. Extract, craft and export insights.",
     "description": "<p>The app lets users input article URLs, extracting the essential content. But it's not just another note-taking platform. Its magic lies in its unique collage feature. Users can merge, rearrange, and craft their notes into a personalized mosaic of knowledge. Think of it as a canvas where insights from various articles come together harmoniously.</p><p>But, what if you could hold this canvas in your hands? Recognizing the value of tangible insights, I integrated a feature allowing users to export their knowledge collages into a neatly organized PDF. It's not just an app; it's a solution tailored for the readers of the digital age.</p><h4>Tech Stack:</h4> <ul><li>Typescript: For a reliable frontend experience.</li><li>Python: Powering the backend for efficient data processing.</li></ul>"

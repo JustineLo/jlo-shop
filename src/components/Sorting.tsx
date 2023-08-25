@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import Select from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
+import { useTranslation } from "react-i18next";
 
 interface SortingProps {
   handleSortMethodChange: (method: string) => void;
@@ -33,6 +34,8 @@ const SortingContainer = styled.div`
 `;
 
 const Sorting: React.FC<SortingProps> = ({ handleSortMethodChange }) => {
+  const { t } = useTranslation();
+
   const handleChange = (
     event:
       | React.MouseEvent<Element, MouseEvent>
@@ -48,17 +51,17 @@ const Sorting: React.FC<SortingProps> = ({ handleSortMethodChange }) => {
 
   return (
     <SortingContainer>
-      <p>Sort by:</p>
+      <p>{t("sort.label")}</p>
       <Select
-        placeholder="Choose one…"
+        placeholder={t("sort.placeholder")}
         size="sm"
         variant="outlined"
         onChange={handleChange}
       >
-        <Option value="priceLowHigh">Price (low to high)</Option>
-        <Option value="priceHighLow">Price (high to low)</Option>
-        <Option value="newest">Newest</Option>
-        <Option value="latest">Latest</Option>
+        <Option value="priceLowHigh">{t("sort.priceLowHigh")}</Option>
+        <Option value="priceHighLow">{t("sort.priceHighLow")}</Option>
+        <Option value="newest">{t("sort.newest")}</Option>
+        <Option value="latest">{t("sort.latest")}</Option>
       </Select>
     </SortingContainer>
   );

@@ -5,6 +5,7 @@ import styled from "styled-components";
 import logo from "./../assets/logo3.png";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 const NavBarContainer = styled.nav`
   position: fixed;
@@ -101,6 +102,7 @@ const CartIconContainer = styled.div`
 
 export const NavBar: React.FC = () => {
   const { state } = useContext(StoreContext);
+  const { t } = useTranslation();
   const cartItemsCount = state.cart.length;
 
   return (
@@ -119,7 +121,7 @@ export const NavBar: React.FC = () => {
             {cartItemsCount > 0 && <Badge>{cartItemsCount}</Badge>}
           </CartIconContainer>
           <CartText>
-            Cart {cartItemsCount > 0 && `(${cartItemsCount})`}
+            {t("navbar.cart")} {cartItemsCount > 0 && `(${cartItemsCount})`}
           </CartText>
         </Cart>
       </RightCol>
