@@ -4,6 +4,7 @@ import { StoreContext } from "../contexts/StoreContext";
 import styled from "styled-components";
 import AddBoxIcon from "@mui/icons-material/AddBox";
 import ProductDetailModal from "../components/ProductDetailModal";
+import { useTranslation } from "react-i18next";
 
 const ProjectCard = styled.div`
   position: relative;
@@ -124,7 +125,7 @@ interface Props {
 export const ProjectItem: React.FC<Props> = ({ project }) => {
   const { dispatch } = useContext(StoreContext);
   const [showModal, setShowModal] = useState(false);
-
+  const { t } = useTranslation();
   const addToCart = () => {
     dispatch({ type: "ADD_TO_CART", project });
   };
@@ -148,7 +149,7 @@ export const ProjectItem: React.FC<Props> = ({ project }) => {
           <Price>{project.price}$</Price>
         </Top>
         <Bottom>
-          <p>{project.excerpt.en}</p>
+          <p>{t(project.excerpt)}</p>
           <AddBoxIcon
             sx={{ color: "var(--primary)", fontSize: "35px" }}
             onClick={addToCart}

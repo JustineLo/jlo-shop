@@ -7,6 +7,7 @@ import { useContext, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   project: Project;
@@ -204,7 +205,7 @@ function ProductDetailModal({ project, showModal, onClose }: Props) {
   if (!showModal) {
     return null;
   }
-
+  const { t } = useTranslation();
   const { dispatch } = useContext(StoreContext);
   const [indexImage, setIndexImage] = useState<number>(0);
   const addToCart = () => {
@@ -244,7 +245,7 @@ function ProductDetailModal({ project, showModal, onClose }: Props) {
             <FiveStars color="var(--tertiary)" />
             <h3>$ {project.price}</h3>
             <div
-              dangerouslySetInnerHTML={{ __html: project.description.en }}
+              dangerouslySetInnerHTML={{ __html: t(project.description) }}
             ></div>
             <span>
               {project.githubUrl && (

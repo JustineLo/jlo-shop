@@ -4,6 +4,7 @@ import { NavBar } from "./components/Navbar";
 import HomePage from "./views/HomePage";
 import Header from "./components/Header";
 import CheckoutPage from "./views/CheckoutPage";
+import "./data/i18n";
 
 function App() {
   return (

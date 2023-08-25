@@ -8,6 +8,7 @@ import StackFilter from "../components/StackFilter";
 import Search from "../components/Search";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { useTranslation } from "react-i18next";
 
 const Container = styled.div`
   width: 100%;
@@ -119,6 +120,7 @@ export const ProjectsList: React.FC = () => {
   const [selectedPriceRange, setSelectedPriceRange] = useState([0, 1000]);
   const [sortMethod, setSortMethod] = useState<string>("");
   const [isExpanded, setIsExpanded] = useState(false);
+  const { t } = useTranslation();
 
   function handleSelectStack(stack: string): void {
     if (stack !== "") {
@@ -165,7 +167,7 @@ export const ProjectsList: React.FC = () => {
                 project.title
                   .toLowerCase()
                   .includes(searchTerm.toLowerCase()) ||
-                project.description.en
+                t(project.description)
                   .toLowerCase()
                   .includes(searchTerm.toLowerCase())
             )
