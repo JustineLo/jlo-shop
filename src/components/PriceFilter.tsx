@@ -35,7 +35,7 @@ const PriceFilterContainer = styled.div`
 function PriceFilter({ handleSelectPriceRange }: PriceFilterProps) {
   const [value, setValue] = useState<number[]>([100, 1000]);
   const { t } = useTranslation();
-  const handleChange = (event: Event, newValue: number | number[]) => {
+  const handleChange = (_: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);
     handleSelectPriceRange(newValue as number[]);
   };

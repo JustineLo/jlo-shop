@@ -37,7 +37,7 @@ const Sorting: React.FC<SortingProps> = ({ handleSortMethodChange }) => {
   const { t } = useTranslation();
 
   const handleChange = (
-    event:
+    _:
       | React.MouseEvent<Element, MouseEvent>
       | React.KeyboardEvent<Element>
       | React.FocusEvent<Element, Element>
