@@ -139,18 +139,25 @@ const CheckoutPage: React.FC = () => {
   return (
     <Container>
       <div>
-        <ItemContainer>
-          {state.cart.map((project) => (
-            <CartItem key={project.id} project={project} />
-          ))}
-        </ItemContainer>
+        {state.cart.length !== 0 ? (
+          <ItemContainer>
+            {state.cart.map((project) => (
+              <CartItem key={project.id} project={project} />
+            ))}
+          </ItemContainer>
+        ) : (
+          <h2>Your basket is empty</h2>
+        )}
+
         <ButtonsContainer>
           <AddMoreButton onClick={handleAddMore}>
             Add More Projects
           </AddMoreButton>
-          <ClearBasketButton onClick={handleClearBasket}>
-            Clear Basket
-          </ClearBasketButton>
+          {state.cart.length !== 0 && (
+            <ClearBasketButton onClick={handleClearBasket}>
+              Clear Basket
+            </ClearBasketButton>
+          )}
         </ButtonsContainer>
       </div>
       <RecapContainer>
