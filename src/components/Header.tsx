@@ -18,8 +18,19 @@ const ImageContainer = styled.div`
     height: 50%;
     background: linear-gradient(to top, var(--background), transparent);
   }
+
   img {
+    margin-top: 65px;
+    width: 100%;
     object-fit: contain;
+  }
+
+  @media (min-width: 768px) {
+    img {
+      margin: 0;
+      width: auto;
+      object-fit: contain;
+    }
   }
 `;
 function Header() {
