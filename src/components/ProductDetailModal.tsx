@@ -69,9 +69,13 @@ const DetailsColumn = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 0 30px 0 10px;
   overflow-y: scroll;
   overflow-x: hidden;
+
+  @media (min-width: 768px) {
+    padding: 30px;
+  }
 `;
 
 const MainImage = styled.div`
